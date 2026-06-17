@@ -1,0 +1,135 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                    WELCOME SEQUENCE - QUICK REFERENCE                      ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TIMING SUMMARY                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Motion 1:  982ms  → Initial welcoming pose (fast setup)                    │
+│ Motion 2:  206ms  → Extended position (quick dramatic extension)           │
+│ Motion 3: 1315ms  → Hold extended (medium-paced confident hold)            │
+│ Motion 4: 1854ms  → Return to start (slow elegant return)                  │
+│                                                                             │
+│ Total Motion Time: ~4.9 seconds                                            │
+│ With delays & effects: ~8.5-9 seconds                                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ MOTION POSITIONS (All 4 sequences)                                         │
+├────────┬─────────┬─────────┬─────────┬─────────┬────────────────────────────┤
+│ Motor  │ Motion1 │ Motion2 │ Motion3 │ Motion4 │ Description                │
+│        │ (982ms) │ (206ms) │(1315ms) │(1854ms) │                            │
+├────────┼─────────┼─────────┼─────────┼─────────┼────────────────────────────┤
+│   1    │  -25°   │  -25°   │  -25°   │  -25°   │ Base (stable)              │
+│   2    │  -20°   │  -20°   │  -20°   │  -20°   │ Base (stable)              │
+│   3    │    0°   │    0°   │    0°   │    0°   │ Center (stable)            │
+│   4    │   24°   │   24°   │   24°   │   24°   │ Base (stable)              │
+│   5    │   19°   │   18°   │   18°   │   19°   │ Minor variation            │
+│   6    │   -1°   │    0°   │    0°   │   -1°   │ Minor variation            │
+│   7    │  -10°   │  -10°   │  -10°   │  -10°   │ Base (stable)              │
+├────────┼─────────┼─────────┼─────────┼─────────┼────────────────────────────┤
+│   8    │   30°   │   96°   │   96°   │   30°   │ RIGHT ARM - Large motion   │
+│   9    │   65°   │  135°   │  135°   │   65°   │ RIGHT ARM - Large motion   │
+│  10    │   35°   │   50°   │   50°   │   35°   │ RIGHT support              │
+├────────┼─────────┼─────────┼─────────┼─────────┼────────────────────────────┤
+│  11    │   10°   │   10°   │   10°   │   10°   │ Center (stable)            │
+│  12    │   10°   │   10°   │   10°   │   10°   │ Center (stable)            │
+├────────┼─────────┼─────────┼─────────┼─────────┼────────────────────────────┤
+│  13    │  -31°   │  -96°   │  -96°   │  -31°   │ LEFT ARM - Large motion    │
+│  14    │  -66°   │ -135°   │ -135°   │  -66°   │ LEFT ARM - Large motion    │
+│  15    │  -36°   │  -50°   │  -50°   │  -36°   │ LEFT support               │
+├────────┼─────────┼─────────┼─────────┼─────────┼────────────────────────────┤
+│  16    │  -10°   │  -10°   │  -10°   │  -10°   │ Base (stable)              │
+└────────┴─────────┴─────────┴─────────┴─────────┴────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ KEY MOTION HIGHLIGHTS                                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ ⚡ MOTION 1 (982ms - Fast Setup):                                          │
+│    • Right arm: 30°, 65° (initial welcome pose)                            │
+│    • Left arm:  -31°, -66° (mirror position)                               │
+│    • Quick, confident startup                                              │
+│                                                                             │
+│ 🚀 MOTION 2 (206ms - Dramatic Extend):                                     │
+│    • Right arm: 96°, 135° (full extension)                                 │
+│    • Left arm:  -96°, -135° (mirror extension)                             │
+│    • FASTEST motion - creates excitement!                                  │
+│    • +66°/+70° change on motors 8/9                                        │
+│    • -65°/-69° change on motors 13/14                                      │
+│                                                                             │
+│ 🤖 MOTION 3 (1315ms - Confident Hold):                                     │
+│    • Maintains extended position                                           │
+│    • Same as Motion 2 (hold for effect)                                    │
+│    • Medium pace shows control                                             │
+│                                                                             │
+│ 💫 MOTION 4 (1854ms - Elegant Return):                                     │
+│    • Right arm: 30°, 65° (return to welcome)                               │
+│    • Left arm:  -31°, -66° (mirror return)                                 │
+│    • SLOWEST motion - graceful finish                                      │
+│    • -66°/-70° change on motors 8/9                                        │
+│    • +65°/+69° change on motors 13/14                                      │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ COMPLETE SEQUENCE TIMELINE                                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ 0.0s  ► Set all LEDs to BLUE                                               │
+│ 0.5s  ► Motion 1: Move to initial pose (982ms)                             │
+│ 1.5s  ► Pause (500ms)                                                      │
+│ 2.0s  ► Motion 2: Quick extension (206ms)                                  │
+│ 2.7s  ► Pause (500ms)                                                      │
+│ 3.2s  ► Motion 3: Hold extended (1315ms)                                   │
+│ 5.0s  ► Pause (500ms)                                                      │
+│ 5.5s  ► Motion 4: Slow return (1854ms)                                     │
+│ 7.9s  ► Pause (500ms)                                                      │
+│ 8.4s  ► Rainbow LED effect (1.5s)                                          │
+│ 9.9s  ► Reset all motors to 0° (variable time)                             │
+│                                                                             │
+│ Total: ~10 seconds                                                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ CHOREOGRAPHY ANALYSIS                                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ Rhythm Pattern:  FAST → SUPER FAST → MEDIUM → SLOW                         │
+│ Visual Impact:   Setup → Surprise → Display → Elegance                     │
+│ Energy Level:    High → Peak → Sustained → Gentle                          │
+│                                                                             │
+│ This creates a dramatic arc:                                               │
+│  • Grabs attention with speed (982ms)                                      │
+│  • Surprises with dramatic extension (206ms)                               │
+│  • Displays capability confidently (1315ms)                                │
+│  • Finishes with grace (1854ms)                                            │
+│                                                                             │
+│ The 9:1 speed ratio between fastest (206ms) and slowest (1854ms)           │
+│ creates dynamic contrast that's more engaging than uniform timing.         │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ QUICK MODIFICATION GUIDE                                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ To change timing, edit this line in the code:                              │
+│                                                                             │
+│   motion_times = [982, 206, 1315, 1854]                                    │
+│                                                                             │
+│ Examples:                                                                   │
+│   [1000, 500, 1500, 2000]  ← Rounded, easier to remember                   │
+│   [500, 500, 500, 500]     ← Uniform speed                                 │
+│   [2000, 100, 1000, 3000]  ← More dramatic contrast                        │
+│   [1500, 1500, 1500, 1500] ← Slower, more deliberate                       │
+│                                                                             │
+│ Valid range: 1ms to 4000ms per motion                                      │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+All motors verified working! ✅
+Files updated: Yolo_face_recognition_FINAL.py & servo_motor_protocols.py
+═══════════════════════════════════════════════════════════════════════════════

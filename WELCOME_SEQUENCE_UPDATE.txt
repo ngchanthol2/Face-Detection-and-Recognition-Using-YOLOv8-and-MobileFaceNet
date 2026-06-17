@@ -1,0 +1,186 @@
+================================================================================
+WELCOME SEQUENCE - CUSTOM TIME FRAMES UPDATE
+================================================================================
+
+✅ CHANGES APPLIED:
+-------------------
+Updated the welcome sequence to use CUSTOM TIME FRAMES for each of the 4 motions:
+- Motion 1: 982 milliseconds  (fast initial movement)
+- Motion 2: 206 milliseconds  (quick transition)
+- Motion 3: 1315 milliseconds (medium-paced hold)
+- Motion 4: 1854 milliseconds (slow return)
+
+🎬 NEW MOTION SEQUENCES:
+------------------------
+
+Motion 1 (982ms): Initial Position
+-----------------------------------
+Motor  1: -25°   Motor  9:  65°
+Motor  2: -20°   Motor 10:  35°
+Motor  3:   0°   Motor 11:  10°
+Motor  4:  24°   Motor 12:  10°
+Motor  5:  19°   Motor 13: -31°
+Motor  6:  -1°   Motor 14: -66°
+Motor  7: -10°   Motor 15: -36°
+Motor  8:  30°   Motor 16: -10°
+
+Motion 2 (206ms): Extended Position
+------------------------------------
+Motor  1: -25°   Motor  9: 135°
+Motor  2: -20°   Motor 10:  50°
+Motor  3:   0°   Motor 11:  10°
+Motor  4:  24°   Motor 12:  10°
+Motor  5:  18°   Motor 13: -96°
+Motor  6:   0°   Motor 14:-135°
+Motor  7: -10°   Motor 15: -50°
+Motor  8:  96°   Motor 16: -10°
+
+Motion 3 (1315ms): Hold Extended Position
+------------------------------------------
+Motor  1: -25°   Motor  9: 135°
+Motor  2: -20°   Motor 10:  50°
+Motor  3:   0°   Motor 11:  10°
+Motor  4:  24°   Motor 12:  10°
+Motor  5:  18°   Motor 13: -96°
+Motor  6:   0°   Motor 14:-135°
+Motor  7: -10°   Motor 15: -50°
+Motor  8:  96°   Motor 16: -10°
+
+Motion 4 (1854ms): Return to Initial
+-------------------------------------
+Motor  1: -25°   Motor  9:  65°
+Motor  2: -20°   Motor 10:  35°
+Motor  3:   0°   Motor 11:  10°
+Motor  4:  24°   Motor 12:  10°
+Motor  5:  19°   Motor 13: -31°
+Motor  6:  -1°   Motor 14: -66°
+Motor  7: -10°   Motor 15: -36°
+Motor  8:  30°   Motor 16: -10°
+
+⏱️ TIMING BREAKDOWN:
+--------------------
+Total sequence time (excluding delays):
+- Motion 1: 982ms   → Initial pose
+- Delay:    500ms   → Brief pause
+- Motion 2: 206ms   → Quick extension
+- Delay:    500ms   → Brief pause  
+- Motion 3: 1315ms  → Hold position
+- Delay:    500ms   → Brief pause
+- Motion 4: 1854ms  → Slow return
+- Delay:    500ms   → Brief pause
+
+Total: ~4,857ms for motions + 2,000ms delays = ~6,857ms (~6.9 seconds)
+
+Plus rainbow effect (~1.5 seconds) and reset (~variable)
+Grand Total: ~8.5-9 seconds for complete welcome sequence
+
+📊 MOTION ANALYSIS:
+-------------------
+
+Phase 1 (982ms - Fast Start):
+- Establishes initial welcoming pose
+- Relatively quick movement to grab attention
+- Symmetric arm positioning
+
+Phase 2 (206ms - Quick Extension):
+- FASTEST movement in sequence
+- Arms extend dramatically (motors 8,9 go to 96°,135°)
+- Creates surprise/excitement moment
+
+Phase 3 (1315ms - Medium Hold):
+- Maintains extended position
+- Medium-paced movement gives stable appearance
+- Shows robot's range of motion
+
+Phase 4 (1854ms - Slow Return):
+- SLOWEST movement in sequence
+- Graceful return to welcome pose
+- Smooth, controlled motion creates elegance
+
+🎭 CHOREOGRAPHY NOTES:
+----------------------
+
+The timing creates a dynamic welcome gesture:
+1. Quick setup (982ms)
+2. Dramatic extend (206ms) - surprise element!
+3. Confident hold (1315ms) - showing capability
+4. Elegant return (1854ms) - smooth finish
+
+This creates a "fast-slow-medium-slower" rhythm that's more
+engaging than uniform timing.
+
+Key Features:
+- Motors 8-9 (right side): Large movements (30°→96°→135°)
+- Motors 13-14 (left side): Mirror movements (-31°→-96°→-135°)
+- Motors 10,15: Moderate movements (35°,50° / -36°,-50°)
+- Base motors 1-7: Stable positions throughout
+- Rainbow LED effect after motions completes the show
+
+🔧 TECHNICAL DETAILS:
+---------------------
+
+Files Modified:
+1. Yolo_face_recognition_FINAL.py
+   - Updated run_welcome_sequence() method
+   - Added motion_times array [982, 206, 1315, 1854]
+   - Updated log messages to show custom time frames
+   - Modified hex command calls to use individual times
+
+2. servo_motor_protocols.py
+   - Updated WelcomeSequence.run_sequence() method
+   - Added same motion_times array
+   - Synchronized with main application
+
+Code Changes:
+- Instead of: get_angle_protocol(motor, angle, self.current_movement_time)
+- Now uses: get_angle_protocol(motor, angle, motion_times[idx])
+
+💡 CUSTOMIZATION:
+-----------------
+
+To adjust timing further, simply modify the motion_times array:
+
+motion_times = [982, 206, 1315, 1854]  # Current values
+motion_times = [1000, 500, 1500, 2000] # Rounded values
+motion_times = [500, 500, 500, 500]    # Uniform timing
+motion_times = [2000, 100, 1000, 3000] # Dramatic variation
+
+Range: 1ms to 4000ms per motion
+
+To adjust angles, modify the motion dictionaries:
+motions = [
+    {1: -25, 2: -20, ...},  # Motion 1 angles
+    {1: -25, 2: -20, ...},  # Motion 2 angles
+    ...
+]
+
+✅ VERIFICATION:
+----------------
+
+Test the welcome sequence by:
+1. Running the application
+2. Connecting to the STM32 controller
+3. Starting face recognition
+4. Either:
+   a) Let face recognition detect Mr. David, or
+   b) Click "Run Welcome Sequence" button manually
+
+Expected Behavior:
+- LEDs turn BLUE
+- Motors move through 4 distinct motion phases
+- Each phase uses its custom time frame
+- Rainbow LED effect plays
+- Motors reset to 0°
+
+Console Log Output:
+[HH:MM:SS] 🎉 Starting Welcome Sequence! (Custom Time Frames: 982, 206, 1315, 1854 ms)
+[HH:MM:SS] Setting BLUE LEDs...
+[HH:MM:SS] Motion 1/4 (982ms)...
+[HH:MM:SS] M1→-25° (982ms)
+[HH:MM:SS] M2→-20° (982ms)
+...
+[HH:MM:SS] ✅ Welcome sequence completed!
+
+================================================================================
+READY TO TEST! Run the application and trigger the welcome sequence.
+================================================================================
